@@ -13,14 +13,14 @@ import (
 func main() {
 	handler := casper.NewRPCHandler("http://node.integration.casper.network:7777/rpc", http.DefaultClient)
 	client := casper.NewRPCClient(handler)
-	transactionHash := "4de6396bb92a04e9106296bf6ca45283917d6d8c2cbc72569ee789aa31ba3034"
+	transactionHash := "ad4e321b81f7deefe4f6aefa25c989ee2e05c86ff5c87795eace0d5d3772417d"
 	deploy, err := client.GetTransactionByTransactionHash(context.Background(), transactionHash)
 	if err != nil {
 		return
 	}
 	b, err := json.MarshalIndent(deploy, "", "  ")
-    if err != nil {
-        fmt.Println(err)
-    }
-    fmt.Print(string(b))
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Print(string(b))
 }

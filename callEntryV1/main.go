@@ -59,11 +59,6 @@ func main() {
 		panic(err)
 	}
 
-	// rpcClient := rpc.NewClient(rpc.NewHttpHandler(utils.ENDPOINT, http.DefaultClient))
-	// _, err = rpcClient.PutDeploy(context.Background(), *deploy)
-	// if err != nil {
-	// 	panic(err)
-	// }
 	handler := casper.NewRPCHandler(utils.ENDPOINT, http.DefaultClient)
 	client := casper.NewRPCClient(handler)
 	result, err := client.PutDeploy(context.Background(), *deploy)
@@ -71,8 +66,8 @@ func main() {
 		return
 	}
 	b, err := json.MarshalIndent(result, "", "  ")
-    if err != nil {
-        fmt.Println(err)
-    }
-    fmt.Print(string(b))
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Print(string(b))
 }
