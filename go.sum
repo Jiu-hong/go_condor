@@ -4,6 +4,8 @@ github.com/decred/dcrd/dcrec/secp256k1/v4 v4.0.1 h1:YLtO71vCjJRCBcrPMtQ9nqBsqpA1
 github.com/decred/dcrd/dcrec/secp256k1/v4 v4.0.1/go.mod h1:hyedUtir6IdtD/7lIxGeCxkaw7y45JueMRL4DIyJDKs=
 github.com/make-software/casper-go-sdk/v2 v2.0.3-beta1.0.20250211172433-f9c705b283bf h1:zk+WrO8c4VQ1tcDi6nByBVqkSMNhpSTSSaT8Oapnpqo=
 github.com/make-software/casper-go-sdk/v2 v2.0.3-beta1.0.20250211172433-f9c705b283bf/go.mod h1:xPZs6iVBbWxbYJ+QzLxp7H1bY6a3AGvPZzX9vMrr8Lo=
+github.com/make-software/casper-go-sdk/v2 v2.0.3-beta1.0.20250212121007-6d94ec4e0479 h1:ND+e/N2uMOal1qHTYSNrjjnW57tnm5lV8wCf4fH9kTw=
+github.com/make-software/casper-go-sdk/v2 v2.0.3-beta1.0.20250212121007-6d94ec4e0479/go.mod h1:xPZs6iVBbWxbYJ+QzLxp7H1bY6a3AGvPZzX9vMrr8Lo=
 github.com/shopspring/decimal v1.3.1 h1:2Usl1nmF/WZucqkFZhnfFYxxxu8LG21F6nPQBE5gKV8=
 github.com/shopspring/decimal v1.3.1/go.mod h1:DKyhrW/HYNuLGql+MJL6WCR6knT2jwCFRcu2hWCYk4o=
 golang.org/x/crypto v0.23.0 h1:dIJU/v2J8Mdglj/8rJ6UUOM3Zc9zLZxVZwwxMooUSAI=

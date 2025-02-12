@@ -2,7 +2,7 @@ module go_condor
 
 go 1.23.6
 
-require github.com/make-software/casper-go-sdk/v2 v2.0.3-beta1.0.20250211172433-f9c705b283bf
+require github.com/make-software/casper-go-sdk/v2 v2.0.3-beta1.0.20250212121007-6d94ec4e0479
 
 require (
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.0.1 // indirect

@@ -13,7 +13,7 @@ import (
 func main() {
 	handler := casper.NewRPCHandler("http://node.integration.casper.network:7777/rpc", http.DefaultClient)
 	client := casper.NewRPCClient(handler)
-	transactionHash := "ad4e321b81f7deefe4f6aefa25c989ee2e05c86ff5c87795eace0d5d3772417d"
+	transactionHash := "f9fa4d7c26d77758ea0ef70184ae9210c1c915721bb541d7e9dc4e2d09c9954b"
 	deploy, err := client.GetTransactionByTransactionHash(context.Background(), transactionHash)
 	if err != nil {
 		return
