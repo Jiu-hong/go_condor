@@ -25,11 +25,13 @@ func main() {
 	args := &types.Args{}
 
 	entrypoint := "apple"
-	hash, err := key.NewHash("a5542d422cc7102165bde32f8c8aa460a81dc64105b03efbcd9c612a7721dadb")
-	// name := "my_hash"
+	// hash, err := key.NewHash("a5542d422cc7102165bde32f8c8aa460a81dc64105b03efbcd9c612a7721dadb")
+	packageHash, err := key.NewHash("e48c5b9631c3a2063e61826d6e52181ea5d6fe35566bf994134caa26fce16586")
 	if err != nil {
 		fmt.Println(err)
 	}
+	// name := "my_hash"
+
 	payload, err := types.NewTransactionV1Payload(
 		types.InitiatorAddr{
 			PublicKey: &pubKey,
@@ -46,10 +48,25 @@ func main() {
 		},
 		types.NewNamedArgs(args),
 		types.TransactionTarget{
+			// // by contract hash
+			// Stored: &types.StoredTarget{
+			// 	ID: types.TransactionInvocationTarget{
+			// 		// ByHash: &hash,
+			// 		ByName: &name,
+			// 	},
+			// 	Runtime: types.NewVmCasperV1TransactionRuntime(),
+			// },
+			// // by package name
+			// Stored: &types.StoredTarget{
+			// 	ID: types.TransactionInvocationTarget{
+			// 		ByPackageName: &types.ByPackageNameInvocationTarget{Name: name},
+			// 	},
+			// 	Runtime: types.NewVmCasperV1TransactionRuntime(),
+			// },
+			// by package hash
 			Stored: &types.StoredTarget{
 				ID: types.TransactionInvocationTarget{
-					ByHash: &hash,
-					// ByName: &name,
+					ByPackageHash: &types.ByPackageHashInvocationTarget{Addr: packageHash},
 				},
 				Runtime: types.NewVmCasperV1TransactionRuntime(),
 			},
