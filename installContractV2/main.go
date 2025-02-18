@@ -12,7 +12,6 @@ import (
 	"go_condor/utils"
 
 	"github.com/make-software/casper-go-sdk/v2/casper"
-	"github.com/make-software/casper-go-sdk/v2/rpc"
 	"github.com/make-software/casper-go-sdk/v2/types"
 	"github.com/make-software/casper-go-sdk/v2/types/clvalue"
 )
@@ -82,7 +81,8 @@ func main() {
 		fmt.Println(err)
 	}
 
-	rpcClient := rpc.NewClient(rpc.NewHttpHandler(utils.ENDPOINT, http.DefaultClient))
+	rpcClient := casper.NewRPCClient(casper.NewRPCHandler(utils.ENDPOINT, http.DefaultClient))
+
 	res, err := rpcClient.PutTransactionV1(context.Background(), *transaction)
 	if err != nil {
 		fmt.Println(err)

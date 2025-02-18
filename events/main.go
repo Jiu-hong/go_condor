@@ -7,12 +7,11 @@ import (
 	"net/http"
 
 	"github.com/make-software/casper-go-sdk/v2/casper"
-	"github.com/make-software/casper-go-sdk/v2/rpc"
 	"github.com/make-software/ces-go-parser/v2"
 )
 
 func main() {
-	client := rpc.NewClient(rpc.NewHttpHandler(utils.ENDPOINT, http.DefaultClient))
+	client := casper.NewRPCClient(casper.NewRPCHandler(utils.ENDPOINT, http.DefaultClient))
 	// the transaction hash installing contract
 	transactionInfo, err := client.GetTransactionByTransactionHash(context.Background(), "5e45de4d3a28d073a2b27531d32a0c12b0697290fcd9551a99066180e38b2649")
 	if err != nil {
