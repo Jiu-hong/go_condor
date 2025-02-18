@@ -20,6 +20,7 @@ func main() {
 	}
 	executionResult := transactionInfo.ExecutionInfo.ExecutionResult
 
+	// contract hash
 	contracthash, err := casper.NewHash("0c30389226f0c938d69230f6bed4fbb3e54479910ec9c917a33fba7f342eb6c5")
 	if err != nil {
 		panic(err)
