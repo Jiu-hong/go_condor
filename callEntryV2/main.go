@@ -1,4 +1,4 @@
-// NG
+// OK
 package main
 
 import (
