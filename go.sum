@@ -6,10 +6,10 @@ github.com/decred/dcrd/dcrec/secp256k1/v4 v4.0.1 h1:YLtO71vCjJRCBcrPMtQ9nqBsqpA1
 github.com/decred/dcrd/dcrec/secp256k1/v4 v4.0.1/go.mod h1:hyedUtir6IdtD/7lIxGeCxkaw7y45JueMRL4DIyJDKs=
 github.com/golang/mock v1.6.0 h1:ErTB+efbowRARo13NNdxyJji2egdxLGQhRaY+DUumQc=
 github.com/golang/mock v1.6.0/go.mod h1:p6yTPP+5HYm5mzsMV8JkE6ZKdX+/wYM6Hr+LicevLPs=
-github.com/make-software/casper-go-sdk/v2 v2.0.3-beta1.0.20250212145225-ce40447dcfbe h1:xNBwazr3hTFy2Ckhp9sdpPu1dAF5ICwGY1M9fvyG7WE=
-github.com/make-software/casper-go-sdk/v2 v2.0.3-beta1.0.20250212145225-ce40447dcfbe/go.mod h1:xPZs6iVBbWxbYJ+QzLxp7H1bY6a3AGvPZzX9vMrr8Lo=
-github.com/make-software/ces-go-parser/v2 v2.0.0-beta h1:DEBTT3HrzGMvVdCzhycd7p2Xd+QQwEQfs9E/4vkI21Y=
-github.com/make-software/ces-go-parser/v2 v2.0.0-beta/go.mod h1:THwjS+ZzrAR/yEp8WspjSssn4uChy3ijJq2egN66/QY=
+github.com/make-software/casper-go-sdk/v2 v2.0.3-beta1.0.20250224154050-ce06d54c9b43 h1:83q08YaYhRBZ09rvnPcdQCYBi/rOebR8mPZKfei7/+I=
+github.com/make-software/casper-go-sdk/v2 v2.0.3-beta1.0.20250224154050-ce06d54c9b43/go.mod h1:xPZs6iVBbWxbYJ+QzLxp7H1bY6a3AGvPZzX9vMrr8Lo=
+github.com/make-software/ces-go-parser/v2 v2.0.0-beta.0.20241003120845-2800e4c80010 h1:Tvqux/crgAWgzrbIj42GIwcrowwuWfUnO7jeze10PLY=
+github.com/make-software/ces-go-parser/v2 v2.0.0-beta.0.20241003120845-2800e4c80010/go.mod h1:5vRRhFNTfTYoOw//XdD0+FbaX2KRI3l1iKx8G++fk5k=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/shopspring/decimal v1.3.1 h1:2Usl1nmF/WZucqkFZhnfFYxxxu8LG21F6nPQBE5gKV8=
@@ -18,6 +18,8 @@ github.com/stretchr/testify v1.8.2 h1:+h33VjcLVPDHtOdpUCuF+7gSuG3yGIftsP1YvFihtJ
 github.com/stretchr/testify v1.8.2/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o6fzry7u4=
 golang.org/x/crypto v0.23.0 h1:dIJU/v2J8Mdglj/8rJ6UUOM3Zc9zLZxVZwwxMooUSAI=
 golang.org/x/crypto v0.23.0/go.mod h1:CKFgDieR+mRhux2Lsu27y0fO304Db0wZe70UKqHu0v8=
+golang.org/x/sync v0.6.0 h1:5BMeUDZ7vkXGfEr1x9B4bRcTH4lpkTkpdh0T/J+qjbQ=
+golang.org/x/sync v0.6.0/go.mod h1:Czt+wKu1gCyEFDUtn0jG5QVvpJ6rzVqr5aXyt9drQfk=
 golang.org/x/sys v0.20.0 h1:Od9JTbYCk261bKm4M/mw7AklTlFYIa0bIp9BgSm1S8Y=
 golang.org/x/sys v0.20.0/go.mod h1:/VUhepiaJMQUp4+oa/7Zr1D23ma6VTLIYjOOTFZPUcA=
 gopkg.in/yaml.v3 v3.0.1 h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA=
