@@ -4,6 +4,7 @@ import "os"
 
 // const NETWORKNAME = "integration-test"
 // const ENDPOINT = "http://node.integration.casper.network:7777/rpc"
+
 // const NETWORKNAME = "casper-jiuhong-test-jh-1"
 // const ENDPOINT = "http://35.87.247.87:7777/rpc"
 

@@ -32,15 +32,26 @@ func main() {
 		fmt.Println(err)
 	}
 
-	associatedAccount, err := key.NewAccountHash("80cef79f0451fdfb21084aaab8a4811e27dfc262c970d77675e3cad5394ef1f7")
+	associatedAccount1, err := key.NewAccountHash("13f3cbf02c716f397239db88180fca7704cc1703f77a4ee925f719b82174a049")
 	if err != nil {
 		fmt.Println(err)
 	}
-
+	associatedAccount2, err := key.NewAccountHash("b34999881cd9bb0ad66378a527c6a8ad0590ca98e53f57e103090501c4406aa8")
+	if err != nil {
+		fmt.Println(err)
+	}
+	associatedAccount3, err := key.NewAccountHash("4df9c55556635622093cf62cb92b4645b6f95cef7ea163dc3d3dbcb3a1a2291f")
+	if err != nil {
+		fmt.Println(err)
+	}
 	accountsList := clvalue.NewCLList(cltype.NewByteArray(32))
-	accountsList.List.Append(clvalue.NewCLByteArray(associatedAccount.Hash[:]))
+	accountsList.List.Append(clvalue.NewCLByteArray(associatedAccount1.Hash[:]))
+	accountsList.List.Append(clvalue.NewCLByteArray(associatedAccount2.Hash[:]))
+	accountsList.List.Append(clvalue.NewCLByteArray(associatedAccount3.Hash[:]))
 
 	listvalue := clvalue.NewCLList(cltype.UInt8)
+	listvalue.List.Append(*clvalue.NewCLUint8(1))
+	listvalue.List.Append(*clvalue.NewCLUint8(1))
 	listvalue.List.Append(*clvalue.NewCLUint8(1))
 
 	args := &types.Args{}
@@ -50,9 +61,9 @@ func main() {
 		AddArgument("accounts", accountsList).
 		AddArgument("weights", listvalue).
 		AddArgument("deploy_type", *clvalue.NewCLString("WalletInitialization")).
-		AddArgument("owner_0", *clvalue.NewCLString("0203c34ddd4dcddfd5c0082cadf24613597712eb92230b901089f469170b44a569a8")).
-		AddArgument("owner_1", *clvalue.NewCLString("0203c34ddd4dcddfd5c0082cadf24613597712eb92230b901089f469170b44a569a8")).
-		AddArgument("owner_2", *clvalue.NewCLString("0203c34ddd4dcddfd5c0082cadf24613597712eb92230b901089f469170b44a569a8"))
+		AddArgument("owner_0", *clvalue.NewCLString("01366d77126a722e1adce6ad0bf2fbdbcdc573eb5c9c338a1097f1837f3dc4ef88")).
+		AddArgument("owner_1", *clvalue.NewCLString("01a36e511344bcecbbe8082bec459c79a66d777d75d33bbed88e7fbd242e33f65d")).
+		AddArgument("owner_2", *clvalue.NewCLString("01c176c9c1281eba037efbbe8c46dc57dcf49a22b23de9cafe9477998993e31972"))
 
 	payload, err := types.NewTransactionV1Payload(
 		types.InitiatorAddr{

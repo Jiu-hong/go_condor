@@ -42,6 +42,11 @@ func main() {
 	resultcorrectvalue, _ := clvalue.NewCLResult(cltype.String, cltype.UInt32, *clvalue.NewCLString("ABC"), true)
 	resulterrvalue, _ := clvalue.NewCLResult(cltype.Bool, cltype.UInt32, *clvalue.NewCLUInt32(10), false)
 
+	optionresult := clvalue.NewCLOption(resulterrvalue)
+
+	mapresult := clvalue.NewCLMap(cltype.String, &cltype.Option{Inner: &cltype.Result{}})
+	mapresult.Map.Append(*clvalue.NewCLString("ABC"), optionresult)
+	// mapresult := clvalue.NewCLOption(resulterrvalue)
 	args := &types.Args{}
 	args.AddArgument("string", *clvalue.NewCLString("Test")).
 		AddArgument("u8", *clvalue.NewCLUint8(9)).
@@ -51,10 +56,12 @@ func main() {
 		AddArgument("list", listvalue).
 		AddArgument("publickey", clvalue.NewCLPublicKey(target)).
 		AddArgument("resultcorrectvalue", resultcorrectvalue).
-		AddArgument("resulterr", resulterrvalue) //NG
+		AddArgument("optionresult", optionresult).
+		AddArgument("resulterr", resulterrvalue).
+		AddArgument("mapresult", mapresult)
 
-	entrypoint := "decimals"
-	packageHash, err := key.NewHash("6e5eddc2bdb31c48c3c14ad9b91a1a1fcdb503d03d8c2d0924517ff31bdd1426")
+	entrypoint := "test2"
+	packageHash, err := key.NewHash("40ad74eb43330f7fb496d6ea49df990e6583f51a01a7204a17a6217dbeb715d7")
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -68,7 +75,7 @@ func main() {
 		utils.NETWORKNAME,
 		types.PricingMode{
 			Limited: &types.LimitedMode{
-				PaymentAmount:     100000,
+				PaymentAmount:     2500000000,
 				GasPriceTolerance: 1,
 				StandardPayment:   true,
 			},
