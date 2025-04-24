@@ -40,7 +40,7 @@ func main() {
 		utils.NETWORKNAME,
 		types.PricingMode{
 			Limited: &types.LimitedMode{
-				PaymentAmount:     100000,
+				PaymentAmount:     2500000000,
 				GasPriceTolerance: 1,
 				StandardPayment:   true,
 			},

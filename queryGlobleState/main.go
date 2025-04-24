@@ -13,7 +13,7 @@ import (
 func main() {
 
 	rpcClient := casper.NewRPCClient(casper.NewRPCHandler(utils.ENDPOINT, http.DefaultClient))
-	contractPackageHash := "hash-19cf434b80aa05d506f475a52da877240517a0ab238a49a54015e46e02649bbd"
+	contractPackageHash := "hash-dc2530a47916c0fb042a94f084b51ae4ec04476933340169ad046b7c5ec5a078"
 	result, err := rpcClient.QueryLatestGlobalState(context.Background(), contractPackageHash, nil)
 	if err != nil {
 		fmt.Println(err)

@@ -1,19 +1,16 @@
-// ok
+// OK
 package main
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"go_condor/utils"
 	"log"
-	"math/big"
 	"net/http"
 	"time"
 
 	"github.com/make-software/casper-go-sdk/v2/casper"
 	"github.com/make-software/casper-go-sdk/v2/types"
-	"github.com/make-software/casper-go-sdk/v2/types/clvalue"
 )
 
 func main() {
@@ -23,14 +20,16 @@ func main() {
 	}
 	pubKey := keys.PublicKey()
 
-	target, err := casper.NewPublicKey("0106ed45915392c02b37136618372ac8dde8e0e3b8ee6190b2ca6db539b354ede4")
-	if err != nil {
-		panic(err)
-	}
-
 	args := &types.Args{}
-	args.AddArgument("target", clvalue.NewCLPublicKey(target)).
-		AddArgument("amount", *clvalue.NewCLUInt512(big.NewInt(2500000000)))
+
+	entrypoint := "apple"
+	// hash, err := key.NewHash("a5542d422cc7102165bde32f8c8aa460a81dc64105b03efbcd9c612a7721dadb")
+	// packageHash, err := key.NewHash("e48c5b9631c3a2063e61826d6e52181ea5d6fe35566bf994134caa26fce16586")
+	// if err != nil {
+	// 	fmt.Println(err)
+	// }
+	// name := "my_hash"
+	name := "apple_contract"
 
 	payload, err := types.NewTransactionV1Payload(
 		types.InitiatorAddr{
@@ -41,17 +40,38 @@ func main() {
 		utils.NETWORKNAME,
 		types.PricingMode{
 			Limited: &types.LimitedMode{
-				PaymentAmount:     100000000,
+				PaymentAmount:     2500000000,
 				GasPriceTolerance: 1,
 				StandardPayment:   true,
 			},
 		},
 		types.NewNamedArgs(args),
 		types.TransactionTarget{
-			Native: &struct{}{},
+			// // by contract hash
+			Stored: &types.StoredTarget{
+				ID: types.TransactionInvocationTarget{
+					// ByHash: &hash,
+					ByName: &name,
+				},
+				Runtime: types.NewVmCasperV1TransactionRuntime(),
+			},
+			// // by package name
+			// Stored: &types.StoredTarget{
+			// 	ID: types.TransactionInvocationTarget{
+			// 		ByPackageName: &types.ByPackageNameInvocationTarget{Name: name},
+			// 	},
+			// 	Runtime: types.NewVmCasperV1TransactionRuntime(),
+			// },
+			// by package hash
+			// Stored: &types.StoredTarget{
+			// 	ID: types.TransactionInvocationTarget{
+			// 		ByPackageHash: &types.ByPackageHashInvocationTarget{Addr: packageHash},
+			// 	},
+			// 	Runtime: types.NewVmCasperV1TransactionRuntime(),
+			// },
 		},
 		types.TransactionEntryPoint{
-			Transfer: &struct{}{},
+			Custom: &entrypoint,
 		},
 		types.TransactionScheduling{
 			Standard: &struct{}{},
@@ -71,24 +91,11 @@ func main() {
 	}
 
 	rpcClient := casper.NewRPCClient(casper.NewRPCHandler(utils.ENDPOINT, http.DefaultClient))
-
 	res, err := rpcClient.PutTransactionV1(context.Background(), *transaction)
 	if err != nil {
 		fmt.Println(err)
 	}
 
 	log.Println("TransactionV1 submitted:", res.TransactionHash.TransactionV1)
-
-	time.Sleep(time.Second * 10)
-	transactionRes, err := rpcClient.GetTransactionByTransactionHash(context.Background(), res.TransactionHash.TransactionV1.ToHex())
-	if err != nil {
-		fmt.Println(err)
-	}
-	// fmt.Println(transactionRes)
-	b, err := json.MarshalIndent(transactionRes, "", "  ")
-	if err != nil {
-		fmt.Println(err)
-	}
-	fmt.Print(string(b))
 
 }

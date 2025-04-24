@@ -1,0 +1,8 @@
+curl --location -g --request POST 'http: //54.174.173.4:7777/rpc' --header 'Content-Type: application/json' --data-raw '  {
+"id": -573285493134384228,
+"jsonrpc": "2.0",
+"method": "query_global_state",
+"params": {
+    "key": "hash-dc2530a47916c0fb042a94f084b51ae4ec04476933340169ad046b7c5ec5a078"
+}
+}' | jq 'del(.result.merkle_proof)'
