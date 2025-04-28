@@ -14,7 +14,7 @@ func main() {
 
 	rpcClient := casper.NewRPCClient(casper.NewRPCHandler(utils.ENDPOINT, http.DefaultClient))
 	contractHash := "hash-082afb61e92f2b88013355502e17a2e3fa62a13eae2d134dc741c618b7eeb4d3"
-	result, err := rpcClient.QueryLatestGlobalState(context.Background(), contractHash, []string{"state_valset_nonce"})
+	result, err := rpcClient.QueryLatestGlobalState(context.Background(), contractHash, []string{"nonce_executed"})
 	if err != nil {
 		fmt.Println(err)
 	}
