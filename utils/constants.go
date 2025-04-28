@@ -10,7 +10,7 @@ const ENDPOINT = "http://node.integration.casper.network:7777/rpc"
 
 // const NETWORKNAME = "dev-net"
 // const ENDPOINT = "http://54.174.173.4:7777/rpc"
-const SIGNEDTRANSACTIONPATH = "/home/ubuntu/keys/test0/secret_key.pem"
+const SIGNEDTRANSACTIONPATH = "signed_transaction"
 const KEYPATH = "/home/ubuntu/keys/test0/secret_key.pem"
 const TTL = 180000000000
 
