@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"go_condor/utils"
 	"math/big"
+	"os"
 	"time"
 
 	"github.com/make-software/casper-go-sdk/v2/casper"
@@ -73,4 +74,9 @@ func main() {
 	}
 	fmt.Print(string(b))
 
+	// Save to file
+	err = os.WriteFile(utils.SIGNEDTRANSACTIONPATH, b, 0644)
+	if err != nil {
+		fmt.Println("Failed to write signed_transaction:", err)
+	}
 }
