@@ -30,7 +30,8 @@ func main() {
 
 	args := &types.Args{}
 	args.AddArgument("target", clvalue.NewCLPublicKey(target)).
-		AddArgument("amount", *clvalue.NewCLUInt512(big.NewInt(2500000000)))
+		AddArgument("amount", *clvalue.NewCLUInt512(big.NewInt(2500000000))).
+		AddArgument("id", clvalue.NewCLOption(*clvalue.NewCLUInt64(9))) // Add a tag argument here
 
 	payload, err := types.NewTransactionV1Payload(
 		types.InitiatorAddr{
