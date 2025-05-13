@@ -2,8 +2,14 @@ package utils
 
 import "os"
 
-const NETWORKNAME = "integration-test"
-const ENDPOINT = "http://node.integration.casper.network:7777/rpc"
+// const NETWORKNAME = "casper-test"
+// const ENDPOINT = "https://node.testnet.casper.network/rpc"
+
+// const NETWORKNAME = "integration-test"
+// const ENDPOINT = "http://node.integration.casper.network:7777/rpc"
+
+const NETWORKNAME = "casper"
+const ENDPOINT = "http://34.218.248.90:7777/rpc"
 
 // const NETWORKNAME = "casper-jiuhong-test-jh-1"
 // const ENDPOINT = "http://35.87.247.87:7777/rpc"

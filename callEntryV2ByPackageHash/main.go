@@ -78,12 +78,15 @@ func main() {
 		},
 	)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("error_2:", err)
 	}
 	transaction, err := types.MakeTransactionV1(payload)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("error_1:", err)
 	}
+
+	fmt.Println("transaction:", transaction)
+	fmt.Println("keys:", keys)
 
 	err = transaction.Sign(keys)
 	if err != nil {

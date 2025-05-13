@@ -29,7 +29,8 @@ func main() {
 		panic(err)
 	}
 
-	parseResult, err := cesParser.ParseExecutionResults(executionResult)
+	parseResult, err := cesParser.ParseExecutionResults(*executionResult)
+
 	if err != nil {
 		panic(err)
 	}
